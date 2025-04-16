@@ -480,8 +480,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Cuts the foe with sharp\n"
             "scythes, claws, etc."),
         .effect = EFFECT_HIT,
-        .power = 50,
-        .type = TYPE_NORMAL,
+        .power = 60,
+        .type = TYPE_STEEL,
         .accuracy = 95,
         .pp = 30,
         .target = MOVE_TARGET_SELECTED,
@@ -5200,12 +5200,12 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Strikes the foe with a bone\n"
             "in hand 2 to 5 times."),
         .effect = EFFECT_MULTI_HIT,
-        .power = 25,
+        .power = 15,
         .type = TYPE_GROUND,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_5 ? 90 : 80,
         .pp = 10,
+        .priority = 1,
         .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
@@ -19564,7 +19564,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .moveEffect = MOVE_EFFECT_TERA_BLAST,
             .self = TRUE,
         }),
-        .battleAnimScript = gBattleAnimMove_TeraBlast,
+        //.battleAnimScript = gBattleAnimMove_TeraBlast,
+        .battleAnimScript = gBattleAnimMove_HyperBeam,
     },
 
     [MOVE_SILK_TRAP] =

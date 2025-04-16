@@ -109,6 +109,41 @@ SlateportCity_EventScript_ScottScene::
 	releaseall
 	end
 
+SlateportCity_EventScript_MintShop::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SlateportCity_Mart_MintShop
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Mart_MintShop:
+	.2byte ITEM_ADAMANT_MINT
+	.2byte ITEM_BOLD_MINT
+	.2byte ITEM_BRAVE_MINT
+	.2byte ITEM_CALM_MINT
+	.2byte ITEM_CAREFUL_MINT
+	.2byte ITEM_GENTLE_MINT
+	.2byte ITEM_HASTY_MINT
+	.2byte ITEM_IMPISH_MINT
+	.2byte ITEM_JOLLY_MINT
+	.2byte ITEM_LAX_MINT
+	.2byte ITEM_LONELY_MINT
+	.2byte ITEM_MILD_MINT
+	.2byte ITEM_MODEST_MINT
+	.2byte ITEM_NAIVE_MINT
+	.2byte ITEM_NAUGHTY_MINT
+	.2byte ITEM_QUIET_MINT
+	.2byte ITEM_RASH_MINT
+	.2byte ITEM_RELAXED_MINT
+	.2byte ITEM_SASSY_MINT
+	.2byte ITEM_SERIOUS_MINT
+	.2byte ITEM_TIMID_MINT
+	pokemartlistend
+
 SlateportCity_Movement_PlayerFaceScott:
 	delay_16
 	delay_8
@@ -562,6 +597,9 @@ SlateportCity_EventScript_PowerTMClerk::
 SlateportCity_Pokemart_PowerTMs:
 	.2byte ITEM_TM_HIDDEN_POWER
 	.2byte ITEM_TM_SECRET_POWER
+	.2byte ITEM_TM51
+	.2byte ITEM_TM52
+	.2byte ITEM_TM53
 	pokemartlistend
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
@@ -898,6 +936,7 @@ SlateportCity_EventScript_ScottBattleTentScene::
 	closedoor 10, 12
 	waitdooranim
 	msgbox SlateportCity_Text_TakingBattleTentChallenge, MSGBOX_DEFAULT
+	giveitem ITEM_AMULET_COIN
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, SlateportCity_Movement_PlayerWatchScottExit
 	applymovement LOCALID_SCOTT, SlateportCity_Movement_ScottExitAfterBattleTent

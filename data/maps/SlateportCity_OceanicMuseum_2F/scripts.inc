@@ -58,6 +58,9 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	applymovement LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_ArchieApproachPlayer
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_ArchieWarning, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_ARCHIE_MUSEUM, SlateportCity_OceanicMuseum_2F_Text_ArchieDefeat
+	closemessage
+	msgbox SlateportCity_OceanicMuseum_2F_Text_ArchieWarning2, MSGBOX_DEFAULT
 	closemessage
 	savebgm MUS_DUMMY
 	fadedefaultbgm
@@ -70,6 +73,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
+	giveitem ITEM_EXPERT_BELT
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs, MSGBOX_DEFAULT
 	setvar VAR_0x8004, ITEM_DEVON_PARTS
 	call Common_EventScript_PlayerHandedOverTheItem
@@ -274,7 +278,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_MuseumPatron3::
 	end
 
 SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
-	.string "Yes? If you're looking for STERN,\n"
+	.string "Yes? If you're looking for Stern,\n"
 	.string "that would be me.\p"
 	.string "Ah! Those must be the parts I ordered\n"
 	.string "from MR. STONE of DEVON.\p"
@@ -282,7 +286,7 @@ SlateportCity_OceanicMuseum_2F_Text_ThankYouForTheParts:
 	.string "We can prepare for our expedition now.$"
 
 SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts:
-	.string "Hehehe, hold it!\n"
+	.string "Hehehe, blijf staan!\n"
 	.string "We'll take those parts!$"
 
 SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou:
@@ -310,6 +314,10 @@ SlateportCity_OceanicMuseum_2F_Text_Grunt2Defeat:
 	.string "What?!\n"
 	.string "I lost, too!$"
 
+SlateportCity_OceanicMuseum_2F_Text_ArchieDefeat:
+	.string "Are you serious?!\n"
+	.string "What a waste!$"
+
 SlateportCity_OceanicMuseum_2F_Text_MeddlingKid:
 	.string "Now what? If we don't get the parts,\n"
 	.string "we're in for it!\p"
@@ -322,17 +330,19 @@ SlateportCity_OceanicMuseum_2F_Text_CameToSeeWhatsTakingSoLong:
 	.string "simps are held up by a mere child?$"
 
 SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
-	.string "We are TEAM AQUA,\n"
+	.string "We are Team Aqua,\n"
 	.string "and we love the sea!\p"
-	.string "And I am TEAM AQUA's leader,\n"
-	.string "ARCHIE!\p"
+	.string "And I am Team Aqua's leader,\n"
+	.string "Archie!\p"
 	.string "What makes you interfere with us?\p"
 	.string "…No! You can't be!\n"
-	.string "You're not one of TEAM MAGMA?\p"
+	.string "You're not one of Team Magma?\p"
 	.string "Wait, that can't be right.\n"
 	.string "You're not dressed for the part.\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …\p"
+	.string "Ah, whatever! I'll deal\n"
+	.string "with you here and now!$"
+
+	SlateportCity_OceanicMuseum_2F_Text_ArchieWarning2:
 	.string "POKéMON, people… All life depends on\n"
 	.string "the sea.\p"
 	.string "So, TEAM AQUA is dedicated to\n"

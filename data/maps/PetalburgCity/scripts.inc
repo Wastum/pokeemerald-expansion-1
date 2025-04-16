@@ -559,6 +559,7 @@ PetalburgCity_EventScript_Scott::
 	delay 30
 	msgbox PetalburgCity_Text_ImLookingForTalentedTrainers, MSGBOX_DEFAULT
 	closemessage
+	giveitem ITEM_FOCUS_SASH
 	call_if_eq VAR_0x8008, 0, PetalburgCity_EventScript_ScottExit0
 	call_if_eq VAR_0x8008, 1, PetalburgCity_EventScript_ScottExit1
 	call_if_eq VAR_0x8008, 2, PetalburgCity_EventScript_ScottExit2

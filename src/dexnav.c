@@ -1068,6 +1068,9 @@ static void Task_DexNavSearch(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
 
+    // Vals spelen
+    gPlayerAvatar.creeping = TRUE;
+
     if (sDexNavSearchDataPtr->proximity > MAX_PROXIMITY)
     { // out of range
         if (sDexNavSearchDataPtr->hiddenSearch && !task->tRevealed)

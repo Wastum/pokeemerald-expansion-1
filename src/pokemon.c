@@ -57,6 +57,8 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/layouts.h"
+#include "constants/map_groups.h"
+#include "constants/map_types.h"
 #include "constants/moves.h"
 #include "constants/regions.h"
 #include "constants/songs.h"
@@ -80,6 +82,7 @@ static void DecryptBoxMon(struct BoxPokemon *boxMon);
 static void Task_PlayMapChosenOrBattleBGM(u8 taskId);
 static bool8 ShouldSkipFriendshipChange(void);
 void TrySpecialOverworldEvo();
+static void ShuffleStatArray(u8* statArray);
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPlayerPartyCount = 0;
@@ -1111,6 +1114,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u8 i;
     u8 availableIVs[NUM_STATS];
     u8 selectedIvs[NUM_STATS];
+    u8 statIDs[NUM_STATS];
+    u8 maxIV = 31;
     bool32 isShiny;
 
     ZeroBoxMonData(boxMon);
@@ -1269,6 +1274,14 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
                     break;
                 }
             }
+        }
+
+        // Set three random IVs to 31
+        ShuffleStatArray(statIDs);
+
+        for (i = 0; i < NUM_STATS; i++)
+        {
+            SetBoxMonData(boxMon, MON_DATA_HP_IV + statIDs[i], &maxIV);
         }
     }
 
@@ -5296,44 +5309,70 @@ void MonGainEVs(struct Pokemon *mon, u16 defeatedSpecies)
         {
         case STAT_HP:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_HP)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_HP + bonus) * multiplier;
-            else
+            {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_HP + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_HP * multiplier;
             break;
+            }
         case STAT_ATK:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_ATK)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Attack + bonus) * multiplier;
-            else
+            {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Attack + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Attack * multiplier;
             break;
+            }
         case STAT_DEF:
-            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_DEF)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Defense + bonus) * multiplier;
-            else
+            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_DEF) {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Defense + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Defense * multiplier;
             break;
+            }
         case STAT_SPEED:
-            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPEED)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Speed + bonus) * multiplier;
-            else
+            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPEED) {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Speed + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Speed * multiplier;
             break;
+            }
         case STAT_SPATK:
-            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPATK)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpAttack + bonus) * multiplier;
-            else
+            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPATK) {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpAttack + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpAttack * multiplier;
             break;
+            }
         case STAT_SPDEF:
-            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPDEF)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpDefense + bonus) * multiplier;
-            else
+            if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPDEF) {
+                //evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpDefense + bonus) * multiplier;
+                evIncrease = (bonus * multiplier) * 4;
+                break;
+            }
+            else {
                 evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpDefense * multiplier;
             break;
+            }
         }
 
         if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
-            evIncrease *= 2;
+            evIncrease *= 4;
 
         if (totalEVs + (s16)evIncrease > currentEVCap)
             evIncrease = ((s16)evIncrease + currentEVCap) - (totalEVs + evIncrease);
@@ -5792,6 +5831,11 @@ u16 GetBattleBGM(void)
             return MUS_VS_RIVAL;
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_ELITE_FOUR;
+        case TRAINER_CLASS_INTERVIEWER:
+        case TRAINER_CLASS_COOLTRAINER:
+        case TRAINER_CLASS_TWINS:
+        case TRAINER_CLASS_SR_AND_JR:
+            return MUS_RG_VS_GYM_LEADER;
         case TRAINER_CLASS_SALON_MAIDEN:
         case TRAINER_CLASS_DOME_ACE:
         case TRAINER_CLASS_PALACE_MAVEN:
@@ -5800,13 +5844,72 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PIKE_QUEEN:
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
+        //case TRAINER_CLASS_SINNOH_TRAINER:
+        //    return MUS_DP_VS_GYM;
         default:
-            return MUS_VS_TRAINER;
+            if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
+                return MUS_RG_VS_GYM_LEADER;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_PETALBURG_WOODS)
+                return MUS_DP_VS_RIVAL_VGM;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_104)
+                if (trainerClass == TRAINER_CLASS_TWINS)
+                    return MUS_RG_VS_GYM_LEADER;
+                else
+                    return MUS_GSC_VS_TRAINER;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_106)
+                return MUS_GSC_VS_TRAINER;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_116)
+                return MUS_RG_VS_GYM_LEADER;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_RUSTBORO_CITY || gMapHeader.regionMapSectionId == MAPSEC_DEWFORD_TOWN)
+                if (trainerClass == TRAINER_CLASS_HIKER)
+                    return MUS_DP_VS_GYM_VGM;
+                else if (trainerClass == TRAINER_CLASS_BLACK_BELT)
+                    return MUS_DP_VS_GYM_VGM;
+                else if (trainerClass == TRAINER_CLASS_SAILOR)
+                    return MUS_RG_VS_GYM_LEADER;
+                else
+                    return MUS_GSC_VS_GYM;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_110 && trainerClass == TRAINER_CLASS_YOUNGSTER)
+                return MUS_DP_VS_RIVAL_VGM;
+            else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_112 && (trainerClass == TRAINER_CLASS_KINDLER || trainerClass == TRAINER_CLASS_AROMA_LADY))
+                return MUS_RG_VS_GYM_LEADER;
+            // Lavaridge Gym
+            else if (gMapHeader.regionMapSectionId == MAPSEC_LAVARIDGE_TOWN && gMapHeader.mapType == MAP_TYPE_INDOOR)
+                if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                    return MUS_DP_VS_GYM_VGM;
+                else
+                    return MUS_GSC_VS_GYM;
+            // Mauville Gym
+            else if (gMapHeader.regionMapSectionId == MAPSEC_MAUVILLE_CITY && gMapHeader.mapType == MAP_TYPE_INDOOR)
+                if (trainerClass == TRAINER_CLASS_GUITARIST)
+                    return MUS_DP_VS_GYM_VGM;
+                else if (trainerClass == TRAINER_CLASS_BUG_MANIAC)
+                    return MUS_RG_VS_GYM_LEADER;
+                else
+                    return MUS_GSC_VS_GYM;
+            else
+                //return HG_SEQ_GS_VS_GYMREADER;
+                return MUS_HGSS_VS_TRAINER;
         }
     }
     else
     {
-        return MUS_VS_WILD;
+        if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_107)
+            return MUS_RG_VS_WILD;
+        else if (gMapHeader.regionMapSectionId == MAPSEC_PETALBURG_WOODS 
+            || gMapHeader.regionMapSectionId == MAPSEC_PETALBURG_CITY 
+            || gMapHeader.regionMapSectionId == MAPSEC_ABANDONED_SHIP 
+            || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_110
+            || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_112
+            || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_111
+            || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_113)
+            return MUS_DP_VS_WILD;
+        else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_104)
+            return MUS_GSC_VS_WILD;
+        else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_102)
+            return MUS_GSC_VS_WILD;
+        else
+            return MUS_VS_WILD;
     }
 }
 
@@ -7062,4 +7165,17 @@ bool32 IsSpeciesForeignRegionalForm(u32 species, u32 currentRegion)
             return TRUE;
     }
     return FALSE;
+}
+
+static void ShuffleStatArray(u8* statArray)
+{
+    int i;
+
+    // Shuffle the stats array using a Fisher-Yates shuffle
+    for (i = NUM_STATS - 1; i > 0; i--)
+    {
+        u8 temp;
+        int j = Random() % (i + 1);
+        SWAP(statArray[i], statArray[j], temp);
+    }
 }

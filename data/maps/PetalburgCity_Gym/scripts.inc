@@ -92,9 +92,18 @@ PetalburgCity_Gym_EventScript_ReturnFromWallyTutorial::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox PetalburgCity_Gym_Text_DadGoCollectBadges, MSGBOX_DEFAULT
+	giveitem ITEM_EXP_SHARE
+	msgbox PetalburgCity_Gym_Text_NormanGiveExpShare, MSGBOX_DEFAULT
 	setvar VAR_PETALBURG_GYM_STATE, 2
 	releaseall
 	end
+
+PetalburgCity_Gym_Text_NormanGiveExpShare:
+	.string "The EXP Share helps you train\n"
+	.string "your team a lot faster than normal\p"
+	.string "You can toggle it by going into\n"
+	.string "your key items bag. When turned on\n"
+	.string "all your pokemon will gain experience$"
 
 PetalburgCity_Gym_Movement_WallyExitGym:
 	walk_down

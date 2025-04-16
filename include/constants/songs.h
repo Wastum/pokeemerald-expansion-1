@@ -546,6 +546,42 @@
 #define PH_NURSE_HELD               608
 #define PH_NURSE_SOLO               609
 
+#define MUS_ROUTE135                610
+#define MUS_RING_MAN                611
+#define MUS_CRASH3                  612
+#define MUS_GSC_VS_GYM              613
+#define MUS_DP_VS_WILD_VGM          614
+#define MUS_DP_VS_RIVAL_VGM         615
+#define MUS_DP_VS_TRAINER_VGM       616
+#define MUS_GSC_VS_WILD             617
+#define MUS_GSC_VS_TRAINER          618
+#define MUS_DP_VS_GYM_VGM           619
+
+#define HG_SEQ_GS_VS_GYMREADER      620 // Battle! (Gym Leader - Johto Version)
+
+#define MUS_DP_VS_CHAMPION          621
+#define MUS_DP_VS_CYRUS             622
+#define MUS_DP_VS_ELITEFOUR         623
+#define MUS_DP_VS_GALACTIC1         624
+#define MUS_DP_VS_GALACTIC2         625
+#define MUS_DP_VS_GYM               626
+#define MUS_DP_VS_LAKE_TRIO         627
+#define MUS_DP_VS_LEGENDARY         628
+#define MUS_DP_VS_RIVAL             629
+#define MUS_DP_VS_TRAINER           630
+#define MUS_DP_VS_WILD              631
+#define MUS_HGSS_VS_CHAMPION        632
+#define MUS_HGSS_VS_CYNTHIA         633
+#define MUS_HGSS_VS_ENTEI           634
+#define MUS_HGSS_VS_GYM             635
+#define MUS_HGSS_VS_GYM_KANTO       636
+#define MUS_HGSS_VS_RIVAL           637
+#define MUS_HGSS_VS_ROCKET          638
+#define MUS_HGSS_VS_TRAINER         639
+#define MUS_HGSS_VS_TRAINER_KANTO   640
+#define MUS_HGSS_VS_WILD            641
+#define MUS_HGSS_VS_WILD_KANTO      642
+
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
 #define MUS_NONE                    0xFFFF

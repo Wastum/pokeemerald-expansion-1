@@ -32,6 +32,12 @@ Route110_EventScript_BeginCylcingRoadChallenge::
 	setvar VAR_CYCLING_CHALLENGE_STATE, 2
 	return
 
+Route110_EventScript_Barry::
+	trainerbattle_single TRAINER_BARRY_SINNOH, Route110_Text_BarryIntro, Route110_Text_BarryDefeated
+	msgbox Route110_Text_BarryPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+
 Route110_EventScript_AquaGrunt1::
 	lock
 	faceplayer
@@ -464,6 +470,7 @@ Route110_EventScript_BrendanDefeated::
 
 Route110_EventScript_GiveItemfinder::
 	giveitem ITEM_DOWSING_MACHINE
+	giveitem ITEM_BICYCLE
 	return
 
 Route110_EventScript_RivalExit::
@@ -630,6 +637,11 @@ Route110_EventScript_BirchScene::
 	delay 30
 	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
 	msgbox Route110_Text_KeepAnEyeOutForRival, MSGBOX_DEFAULT
+	setflag FLAG_CUSTOM_DEXNAV
+	setflag FLAG_CUSTOM_DETECTOR
+	setflag FLAG_CUSTOM_DEXNAV_SEARCHING
+	setflag FLAG_CUSTOM_DEXNAV_SPECIES
+	msgbox Route110_Text_ActivatedDexNav, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, 1, Route110_EventScript_BirchExit1
 	call_if_eq VAR_0x8008, 2, Route110_EventScript_BirchExit2
@@ -639,6 +651,9 @@ Route110_EventScript_BirchScene::
 	setvar VAR_REGISTER_BIRCH_STATE, 2
 	releaseall
 	end
+
+Route110_Text_ActivatedDexNav:
+	.string "I also just activated your DexNav!$"
 
 Route110_EventScript_BirchApproachPlayer1::
 	applymovement LOCALID_BIRCH, Route110_Movement_BirchApproachPlayer1

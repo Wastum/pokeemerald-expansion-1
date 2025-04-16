@@ -50,6 +50,7 @@
 #define PARTY_ACTION_MINIGAME           13
 #define PARTY_ACTION_SEND_MON_TO_BOX    14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
+#define PARTY_ACTION_REUSABLE_ITEM      16
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0
@@ -83,6 +84,7 @@
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
 #define PARTY_MSG_NO_POKEMON                29
 #define PARTY_MSG_CHOOSE_MON_FOR_BOX        30
+#define PARTY_MSG_MOVE_ITEM_WHERE           31
 
 #define PARTY_MSG_NONE                      127
 
@@ -107,5 +109,6 @@
 #define SELECTWINDOW_MOVES       3
 #define SELECTWINDOW_CATALOG     4
 #define SELECTWINDOW_ZYGARDECUBE 5
+#define SELECTWINDOW_PYRAMID      6
 
 #endif // GUARD_CONSTANTS_PARTY_MENU_H

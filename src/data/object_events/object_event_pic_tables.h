@@ -25,6 +25,18 @@ static const struct SpriteFrameImage sPicTable_BrendanSurfing[] = {
     overworld_frame(gObjectEventPic_BrendanSurfing, 4, 4, 5),
 };
 
+static const struct SpriteFrameImage gObjectEventPicTable_Barry[] = {
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Barry, 4, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_BrendanUnderwater[] = {
     overworld_frame(gObjectEventPic_BrendanUnderwater, 4, 4, 0),
     overworld_frame(gObjectEventPic_BrendanUnderwater, 4, 4, 1),

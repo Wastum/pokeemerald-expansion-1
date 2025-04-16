@@ -30,8 +30,18 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_ROCK_TOMB
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	giveitem ITEM_ROCKY_HELMET
+	msgbox RustboroCity_Gym_Text_GiveEviolite, MSGBOX_DEFAULT
 	release
 	end
+
+RustboroCity_Gym_Text_GiveEviolite:
+	.string "An eviolite boosts the defenses\n"
+	.string "of an unevolved Pokémon\n"
+	.string "holding it.\p"
+	.string "It's great when you're\n"
+	.string "still early in your\n"
+	.string "adventure!$"
 
 RustboroCity_Gym_EventScript_RoxanneRematch::
 	trainerbattle_rematch_double TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxannePreRematch, RustboroCity_Gym_Text_RoxanneRematchDefeat, RustboroCity_Gym_Text_RoxanneRematchNeedTwoMons

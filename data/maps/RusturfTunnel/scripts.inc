@@ -325,6 +325,7 @@ RusturfTunnel_EventScript_Grunt::
 	msgbox RusturfTunnel_Text_PeekoGladToSeeYouSafe, MSGBOX_DEFAULT
 	applymovement LOCALID_BRINEY, Common_Movement_FacePlayer
 	waitmovement 0
+	giveitem ITEM_LOADED_DICE
 	message RusturfTunnel_Text_ThankYouLetsGoHomePeeko
 	waitmessage
 	waitse

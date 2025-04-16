@@ -138,12 +138,27 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .breakable = TRUE,
     },
 
+    [ABILITY_BYPASS] =
+    {
+        .name = _("Bypass"),
+        .description = COMPOUND_STRING("Status moves always work"),
+        .aiRating = 6,
+        .breakable = TRUE,
+    },
+
     [ABILITY_FLASH_FIRE] =
     {
         .name = _("Flash Fire"),
         .description = COMPOUND_STRING("Powers up if hit by fire."),
         .aiRating = 6,
         .breakable = TRUE,
+    },
+
+    [ABILITY_BONE_POWER] =
+    {
+        .name = _("Bone Power"),
+        .description = COMPOUND_STRING("Bone moves hit flying types."),
+        .aiRating = 6,
     },
 
     [ABILITY_SHIELD_DUST] =
@@ -205,6 +220,22 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Levitate"),
         .description = COMPOUND_STRING("Not hit by Ground attacks."),
+        .aiRating = 7,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_PSYCHOPATH] =
+    {
+        .name = _("Psychopath"),
+        .description = COMPOUND_STRING("Not hit by Psychic attacks."),
+        .aiRating = 7,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_DARK_EATER] =
+    {
+        .name = _("Dark Eater"),
+        .description = COMPOUND_STRING("Not hit by Dark attacks."),
         .aiRating = 7,
         .breakable = TRUE,
     },
@@ -866,6 +897,14 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Solid Rock"),
         .description = COMPOUND_STRING("Weakens “supereffective”."),
+        .aiRating = 6,
+        .breakable = TRUE,
+    },
+
+    [ABILITY_BULL_SHIELD] =
+    {
+        .name = _("Bull Shield"),
+        .description = COMPOUND_STRING("Halves “supereffective”."),
         .aiRating = 6,
         .breakable = TRUE,
     },

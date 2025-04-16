@@ -1154,3 +1154,15 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
 	.include "data/scripts/dexnav.inc"
+
+	.include "data/maps/Route135/scripts.inc"
+
+	.include "data/maps/PetalburgPark/scripts.inc"
+
+	.include "data/maps/Cave135/scripts.inc"
+
+	.include "data/maps/PetalburgHouse/scripts.inc"
+
+	.include "data/maps/DesertTemple/scripts.inc"
+
+	.include "data/maps/TempleEntrance/scripts.inc"

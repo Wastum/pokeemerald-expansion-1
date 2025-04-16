@@ -69,6 +69,7 @@
 #include "constants/weather.h"
 #include "constants/metatile_labels.h"
 #include "palette.h"
+#include "event_data.h"
 #include "battle_util.h"
 #include "naming_screen.h"
 
@@ -1077,6 +1078,9 @@ static void PCTurnOnEffect(struct Task *task)
 static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
 {
     u16 metatileId = 0;
+    // Pokenav PC
+    if (gSysPcFromPokenav)
+        return;
     if (isScreenOn)
     {
         // Screen is on, set it off
@@ -1114,6 +1118,12 @@ static void PCTurnOffEffect(void)
 
     // Get where the PC should be, depending on where the player is looking.
     u8 playerDirection = GetPlayerFacingDirection();
+
+    // Pokenav PC
+    if (gSysPcFromPokenav){
+        gSysPcFromPokenav = FALSE;
+        return;
+    }
 
     if (IsPlayerInFrontOfPC() == FALSE)
         return;

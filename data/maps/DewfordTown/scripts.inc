@@ -66,8 +66,21 @@ DewfordTown_EventScript_SailBackToPetalburg::
 	end
 
 DewfordTown_EventScript_Woman::
+	lockall
+	faceplayer
 	msgbox DewfordTown_Text_TinyIslandCommunity, MSGBOX_NPC
+	pokemart Pokemart_Woman
+	releaseall
 	end
+
+	.align 2
+Pokemart_Woman:
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_REVIVAL_HERB
+	.2byte ITEM_NONE
+
 
 DewfordTown_EventScript_TownSign::
 	msgbox DewfordTown_Text_TownSign, MSGBOX_SIGN
@@ -92,7 +105,7 @@ DewfordTown_EventScript_OldRodFisherman::
 
 DewfordTown_EventScript_GiveOldRod::
 	msgbox DewfordTown_Text_GiveYouOneOfMyRods, MSGBOX_DEFAULT
-	giveitem ITEM_OLD_ROD
+	giveitem ITEM_GOOD_ROD
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_OLD_ROD
 	msgbox DewfordTown_Text_ThrowInFishingAdvice, MSGBOX_DEFAULT

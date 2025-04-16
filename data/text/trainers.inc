@@ -1232,6 +1232,16 @@ Route110_Text_KalebPostBattle:
 	.string "Okay, okay, you've done the best you\n"
 	.string "could, my pretties.$"
 
+Route110_Text_BarryIntro:
+	.string "KIJK UIT WAAR JE LOOPT,\n"
+	.string "ANDERS KRIJG JE EEN BOETE!$"
+
+Route110_Text_BarryPostBattle:
+	.string "Ach krijg toch wat.$"
+
+Route110_Text_BarryDefeated:
+	.string "Volgende keer beter!$"
+
 Route111_Text_DrewIntro:
 	.string "Oh, hey! Those GO-GOGGLES suit you.\n"
 	.string "But I think they look better on me.\p"

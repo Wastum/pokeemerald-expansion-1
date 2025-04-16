@@ -27,6 +27,11 @@
       "map": "MAP_ROUTE112",
       "offset": 20,
       "direction": "left"
+    },
+    {
+      "map": "MAP_TEMPLE_ENTRANCE",
+      "offset": 41,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -224,19 +229,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash",
       "flag": "FLAG_TEMP_11"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 19,
-      "y": 100,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
@@ -663,6 +655,13 @@
       "y": 113,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_TEMPLE",
       "dest_warp_id": "0"
     }
   ],

@@ -611,7 +611,39 @@ gSongTable::
 	song ph_nurse_blend, 2, 2
 	song ph_nurse_held, 2, 2
 	song ph_nurse_solo, 2, 2
-
+	song mus_route135, 0, 0
+	song mus_ring_man, 0, 0
+	song mus_crash3, 0, 0
+	song mus_gsc_vs_gym, 0, 0
+	song mus_dp_vs_wild_vgm, 0, 0
+	song mus_dp_vs_rival_vgm, 0, 0
+	song mus_dp_vs_trainer_vgm, 0, 0
+	song mus_gsc_vs_wild, 0, 0
+	song mus_gsc_vs_trainer, 0, 0
+	song mus_dp_vs_gym, 0, 0
+	song hg_seq_gs_vs_gymreader, 0, 0
+	song mus_dp_vs_champion, 0, 0
+	song mus_dp_vs_cyrus, 0, 0
+	song mus_dp_vs_elitefour, 0, 0
+	song mus_dp_vs_galactic1, 0, 0
+	song mus_dp_vs_galactic2, 0, 0
+	song mus_dp_vs_gym, 0, 0
+	song mus_dp_vs_lake_trio, 0, 0
+	song mus_dp_vs_legendary, 0, 0
+	song mus_dp_vs_rival, 0, 0
+	song mus_dp_vs_trainer, 0, 0
+	song mus_dp_vs_wild, 0, 0
+	song mus_hgss_vs_champion, 0, 0
+	song mus_hgss_vs_cynthia, 0, 0
+	song mus_hgss_vs_entei, 0, 0
+	song mus_hgss_vs_gym, 0, 0
+	song mus_hgss_vs_gym_kanto, 0, 0
+	song mus_hgss_vs_rival, 0, 0
+	song mus_hgss_vs_rocket, 0, 0
+	song mus_hgss_vs_trainer, 0, 0
+	song mus_hgss_vs_trainer_kanto, 0, 0
+	song mus_hgss_vs_wild, 0, 0
+	song mus_hgss_vs_wild_kanto, 0, 0
 	.align 2
 dummy_song_header:
 	.byte 0, 0, 0, 0

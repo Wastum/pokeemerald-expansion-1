@@ -312,9 +312,9 @@ LittlerootTown_MaysHouse_2F_EventScript_TurnOffPlayerPC::
 
 RivalsHouse_2F_Text_MayWhoAreYou:
 	.string "Huh?\n"
-	.string "Who… Who are you?\p"
-	.string "… … … … … … … …\n"
-	.string "… … … … … … … …\p"
+	.string "Wie de kanker ben jij??\p"
+	.string "Wat doe je hier? En blijf\n"
+	.string "van mijn spullen af!\p"
 	.string "Oh, you're {PLAYER}{KUN}.\n"
 	.string "So your move was today.\p"
 	.string "Um… I'm MAY.\n"
@@ -339,9 +339,9 @@ RivalsHouse_2F_Text_MayGettingReady:
 	.string "Items ready, and…$"
 
 RivalsHouse_2F_Text_BrendanWhoAreYou:
-	.string "Hey!\n"
-	.string "You…\p"
-	.string "Who are you?\p"
+	.string "Wie de kanker ben jij dan?!\n"
+	.string "Blijf van mijn spullen smerige\p"
+	.string "kankerhoer!\p"
 	.string "Oh, you're {PLAYER}, aren't you?\n"
 	.string "Moved in next door, right?\p"
 	.string "I didn't know that you're a girl.\p"

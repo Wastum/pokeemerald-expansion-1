@@ -264,7 +264,7 @@
     {
       "id": "LAYOUT_ROUTE111",
       "name": "Route111_Layout",
-      "width": 40,
+      "width": 50,
       "height": 140,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
@@ -4410,6 +4410,66 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE135",
+      "name": "Route135_Layout",
+      "width": 30,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Route135/border.bin",
+      "blockdata_filepath": "data/layouts/Route135/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_PARK",
+      "name": "PetalburgPark_Layout",
+      "width": 22,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PetalburgPark/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgPark/map.bin"
+    },
+    {
+      "id": "LAYOUT_CAVE135",
+      "name": "Cave135_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Cave135/border.bin",
+      "blockdata_filepath": "data/layouts/Cave135/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_HOUSE",
+      "name": "PetalburgHouse_Layout",
+      "width": 15,
+      "height": 5,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/PetalburgHouse/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_TEMPLE",
+      "name": "DesertTemple_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/DesertTemple/border.bin",
+      "blockdata_filepath": "data/layouts/DesertTemple/map.bin"
+    },
+    {
+      "id": "LAYOUT_TEMPLE_ENTRANCE",
+      "name": "TempleEntrance_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TempleEntrance/border.bin",
+      "blockdata_filepath": "data/layouts/TempleEntrance/map.bin"
     }
   ]
 }

@@ -135,6 +135,9 @@ static const u8 sText_SpAttack[] = _("Sp. Atk");
 static const u8 sText_SpDefense[] = _("Sp. Def");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
+static const u8 sText_PkmnDroppedItem[] = _("Wild {B_OPPONENT_MON1_NAME} dropped an item!\p");
+static const u8 sText_AddedToBag[] = _("{B_PLAYER_NAME} put away the {B_BUFF1}\nin the BAG.\p");
+static const u8 sText_BagIsFull[] = _("Too bad! The BAG is full…\p");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -544,6 +547,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PKMNBOXLANETTESPCFULL]                = gText_PkmnTransferredLanettesPCBoxFull,
     [STRINGID_TRAINER1WINTEXT]                      = COMPOUND_STRING("{B_TRAINER1_WIN_TEXT}"),
     [STRINGID_TRAINER2WINTEXT]                      = COMPOUND_STRING("{B_TRAINER2_WIN_TEXT}"),
+    [STRINGID_PKMNDROPPEDITEM]                      = sText_PkmnDroppedItem,
+    [STRINGID_ADDEDTOBAG]                           = sText_AddedToBag,
+    [STRINGID_BAGISFULL]                            = sText_BagIsFull,
     [STRINGID_ENDUREDSTURDY]                        = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} endured the hit using {B_DEF_ABILITY}!"),
     [STRINGID_POWERHERB]                            = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} became fully charged due to its {B_LAST_ITEM}!"),
     [STRINGID_HURTBYITEM]                           = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} was hurt by the {B_LAST_ITEM}!"),

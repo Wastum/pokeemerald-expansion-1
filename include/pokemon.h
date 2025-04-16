@@ -11,6 +11,15 @@
 #define GET_BASE_SPECIES_ID(speciesId) (GetFormSpeciesId(speciesId, 0))
 #define FORM_SPECIES_END (0xffff)
 
+// Level Scaling that I temporarily put here because yeah, that's why.
+#define WSTM_LEVEL_SCALE_TRAINER    TRUE
+#define WSTM_LEVEL_SCALE_WILD       TRUE
+
+#define WLSW_LOW   0 // Scale based on lowest level
+#define WLSW_HIGH  1 // Scale bases on highest level
+
+#define WSTM_LEVEL_SCALE_WILD_TYPE  WLSW_LOW
+
 // Property labels for Get(Box)MonData / Set(Box)MonData
 enum {
     MON_DATA_PERSONALITY,

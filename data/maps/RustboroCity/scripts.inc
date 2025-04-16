@@ -157,7 +157,17 @@ RustboroCity_EventScript_DevonEmployee2::
 	end
 
 RustboroCity_EventScript_Woman::
-	msgbox RustboroCity_Text_GymLeaderIsntEasyWithFire, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox RustboroCity_Text_GymLeaderIsntEasyWithFire, MSGBOX_DEFAULT
+	giveitem ITEM_POMEG_BERRY, 20
+	giveitem ITEM_KELPSY_BERRY, 20
+	giveitem ITEM_QUALOT_BERRY, 20
+	giveitem ITEM_HONDEW_BERRY, 20
+	giveitem ITEM_GREPA_BERRY, 20
+	giveitem ITEM_TAMATO_BERRY, 20
+	msgbox RustboroCity_Text_UseThemForReducingEVs, MSGBOX_NPC
+	releaseall
 	end
 
 RustboroCity_EventScript_Man1::
@@ -600,7 +610,7 @@ RustboroCity_EventScript_ReturnGoods::
 	call_if_eq VAR_TEMP_1, 3, RustboroCity_EventScript_EmployeeApproachPlayerDown2
 	call_if_eq VAR_TEMP_1, 4, RustboroCity_EventScript_EmployeeFacePlayerRight
 	msgbox RustboroCity_Text_YouGotItThankYou, MSGBOX_DEFAULT
-	giveitem ITEM_GREAT_BALL
+	giveitem ITEM_KINGS_ROCK
 	call_if_eq VAR_RESULT, FALSE, RustboroCity_EventScript_BagFull
 	msgbox RustboroCity_Text_PleaseComeWithMe, MSGBOX_DEFAULT
 	closemessage
@@ -1297,3 +1307,9 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+RustboroCity_Text_UseThemForReducingEVs:
+	.string "You can use them to reduve EVs,\n"
+	.string "and it will raise happiness.\p"
+	.string "This allows for some Pokemon\n"
+	.string "to evolve faster!$"

@@ -50,6 +50,7 @@
 #include "constants/trainers.h"
 #include "constants/weather.h"
 #include "constants/pokemon.h"
+#include "constants/map_types.h"
 
 /*
 NOTE: The data and functions in this file up until (but not including) sSoundMovesTable
@@ -3595,7 +3596,9 @@ static void CancellerPowderMove(u32 *effect)
     if (IsPowderMove(gCurrentMove) && (gBattlerAttacker != gBattlerTarget))
     {
         if (B_POWDER_GRASS >= GEN_6
-            && (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS) || GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT))
+            && GetBattlerAbility(gBattlerAttacker) != ABILITY_BYPASS
+            && (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_GRASS) 
+            || GetBattlerAbility(gBattlerTarget) == ABILITY_OVERCOAT))
         {
             gBattlerAbility = gBattlerTarget;
             *effect = 1;
@@ -4060,7 +4063,7 @@ bool32 TryChangeBattleWeather(u32 battler, u32 battleWeatherId, bool32 viaAbilit
         else if (rock != 0 && GetBattlerHoldEffect(battler, TRUE) == rock)
             gWishFutureKnock.weatherDuration = 8;
         else
-            gWishFutureKnock.weatherDuration = 5;
+            gWishFutureKnock.weatherDuration = 8;
         return TRUE;
     }
 
@@ -4321,6 +4324,7 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
     const u8 *battleScript = NULL;
     u32 statId = 0;
     u32 statAmount = 1;
+    u32 highestAttackStat = (gBattleMons[battlerDef].attack >= gBattleMons[battlerDef].spAttack) ? STAT_ATK : STAT_SPATK;
 
     switch (abilityDef)
     {
@@ -4351,21 +4355,35 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
         if (B_REDIRECT_ABILITY_IMMUNITY >= GEN_5 && moveType == TYPE_ELECTRIC && GetMoveTarget(move) != MOVE_TARGET_ALL_BATTLERS) // Potential bug in singles (might be solved with simu hp reudction)
         {
             effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_SPATK;
+            statId = highestAttackStat;
         }
         break;
     case ABILITY_STORM_DRAIN:
         if (B_REDIRECT_ABILITY_IMMUNITY >= GEN_5 && moveType == TYPE_WATER)
         {
             effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_SPATK;
+            statId = highestAttackStat;
         }
         break;
     case ABILITY_SAP_SIPPER:
         if (moveType == TYPE_GRASS)
         {
             effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_ATK;
+            statId = highestAttackStat;
+        }
+        break;
+    case ABILITY_PSYCHOPATH:
+        if (moveType == TYPE_PSYCHIC)
+        {
+            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
+            statId = highestAttackStat;
+        }
+        break;
+    case ABILITY_DARK_EATER:
+        if (moveType == TYPE_DARK)
+        {
+            effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
+            statId = highestAttackStat;
         }
         break;
     case ABILITY_WELL_BAKED_BODY:
@@ -4380,7 +4398,7 @@ bool32 CanAbilityAbsorbMove(u32 battlerAtk, u32 battlerDef, u32 abilityDef, u32 
         if (IsWindMove(move) && !(GetBattlerMoveTargetType(battlerAtk, move) & MOVE_TARGET_USER))
         {
             effect = MOVE_ABSORBED_BY_STAT_INCREASE_ABILITY;
-            statId = STAT_ATK;
+            statId = highestAttackStat;
         }
         break;
     case ABILITY_FLASH_FIRE:
@@ -4652,9 +4670,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         }
         break;
     case ABILITYEFFECT_SWITCH_IN_TERRAIN:   // terrain starting from overworld weather
-        if (B_THUNDERSTORM_TERRAIN == TRUE
+        if ((B_THUNDERSTORM_TERRAIN == TRUE
          && !(gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
          && GetCurrentWeather() == WEATHER_RAIN_THUNDERSTORM)
+        || (gMapHeader.regionMapSectionId == MAPSEC_MAUVILLE_CITY && gMapHeader.mapType == MAP_TYPE_INDOOR)) // Mauville City Gym
         {
             // overworld weather started rain, so just do electric terrain anim
             gFieldStatuses = STATUS_FIELD_ELECTRIC_TERRAIN;
@@ -4663,9 +4682,10 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);
             effect++;
         }
-        else if (B_OVERWORLD_FOG >= GEN_8
+        else if ((B_OVERWORLD_FOG >= GEN_8
               && (GetCurrentWeather() == WEATHER_FOG_HORIZONTAL || GetCurrentWeather() == WEATHER_FOG_DIAGONAL)
               && !(gFieldStatuses & STATUS_FIELD_MISTY_TERRAIN))
+              || gMapHeader.regionMapSectionId == MAPSEC_LAVARIDGE_TOWN) // Terrain for Lavaridge Gym
         {
             gFieldStatuses = STATUS_FIELD_MISTY_TERRAIN;
             gFieldTimers.terrainTimer = 0;
@@ -4678,61 +4698,71 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
         gBattleScripting.battler = battler;
         if (!(gBattleTypeFlags & BATTLE_TYPE_RECORDED))
         {
-            switch (GetCurrentWeather())
+            // Lavaridge Gym
+            if (gMapHeader.regionMapSectionId == MAPSEC_LAVARIDGE_TOWN)
             {
-            case WEATHER_RAIN:
-            case WEATHER_RAIN_THUNDERSTORM:
-            case WEATHER_DOWNPOUR:
-                if (!(gBattleWeather & B_WEATHER_RAIN))
+                gBattleWeather = B_WEATHER_SUN_NORMAL;
+                gBattleScripting.animArg1 = B_ANIM_SUN_CONTINUES;
+                effect++;
+            }
+            else
+            {
+                switch (GetCurrentWeather())
                 {
-                    gBattleWeather = B_WEATHER_RAIN_NORMAL;
-                    gBattleScripting.animArg1 = B_ANIM_RAIN_CONTINUES;
-                    effect++;
-                }
-                break;
-            case WEATHER_SANDSTORM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM))
-                {
-                    gBattleWeather = B_WEATHER_SANDSTORM;
-                    gBattleScripting.animArg1 = B_ANIM_SANDSTORM_CONTINUES;
-                    effect++;
-                }
-                break;
-            case WEATHER_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN))
-                {
-                    gBattleWeather = B_WEATHER_SUN_NORMAL;
-                    gBattleScripting.animArg1 = B_ANIM_SUN_CONTINUES;
-                    effect++;
-                }
-                break;
-            case WEATHER_SNOW:
-                if (!(gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
-                {
-                    if (B_OVERWORLD_SNOW >= GEN_9)
+                case WEATHER_RAIN:
+                case WEATHER_RAIN_THUNDERSTORM:
+                case WEATHER_DOWNPOUR:
+                    if (!(gBattleWeather & B_WEATHER_RAIN))
                     {
-                        gBattleWeather = B_WEATHER_SNOW;
-                        gBattleScripting.animArg1 = B_ANIM_SNOW_CONTINUES;
-                    }
-                    else
-                    {
-                        gBattleWeather = B_WEATHER_HAIL;
-                        gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
-                    }
-                    effect++;
-                }
-                break;
-            case WEATHER_FOG_DIAGONAL:
-            case WEATHER_FOG_HORIZONTAL:
-                if (B_OVERWORLD_FOG == GEN_4)
-                {
-                    if (!(gBattleWeather & B_WEATHER_FOG))
-                    {
-                        gBattleWeather = B_WEATHER_FOG;
-                        gBattleScripting.animArg1 = B_ANIM_FOG_CONTINUES;
+                        gBattleWeather = B_WEATHER_RAIN_NORMAL;
+                        gBattleScripting.animArg1 = B_ANIM_RAIN_CONTINUES;
                         effect++;
                     }
                     break;
+                case WEATHER_SANDSTORM:
+                    if (!(gBattleWeather & B_WEATHER_SANDSTORM))
+                    {
+                        gBattleWeather = B_WEATHER_SANDSTORM;
+                        gBattleScripting.animArg1 = B_ANIM_SANDSTORM_CONTINUES;
+                        effect++;
+                    }
+                    break;
+                case WEATHER_DROUGHT:
+                    if (!(gBattleWeather & B_WEATHER_SUN))
+                    {
+                        gBattleWeather = B_WEATHER_SUN_NORMAL;
+                        gBattleScripting.animArg1 = B_ANIM_SUN_CONTINUES;
+                        effect++;
+                    }
+                    break;
+                case WEATHER_SNOW:
+                    if (!(gBattleWeather & (B_WEATHER_HAIL | B_WEATHER_SNOW)))
+                    {
+                        if (B_OVERWORLD_SNOW >= GEN_9)
+                        {
+                            gBattleWeather = B_WEATHER_SNOW;
+                            gBattleScripting.animArg1 = B_ANIM_SNOW_CONTINUES;
+                        }
+                        else
+                        {
+                            gBattleWeather = B_WEATHER_HAIL;
+                            gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
+                        }
+                        effect++;
+                    }
+                    break;
+                case WEATHER_FOG_DIAGONAL:
+                case WEATHER_FOG_HORIZONTAL:
+                    if (B_OVERWORLD_FOG == GEN_4)
+                    {
+                        if (!(gBattleWeather & B_WEATHER_FOG))
+                        {
+                            gBattleWeather = B_WEATHER_FOG;
+                            gBattleScripting.animArg1 = B_ANIM_FOG_CONTINUES;
+                            effect++;
+                        }
+                        break;
+                    }
                 }
             }
         }
@@ -9916,8 +9946,12 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_LIGHT_BALL:
+        // Give Pikachu a 2.0 damage boost
         if (atkBaseSpeciesId == SPECIES_PIKACHU && (B_LIGHT_BALL_ATTACK_BOOST >= GEN_4 || IsBattleMoveSpecial(move)))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        // Give Raichu a 1.5 damage boost
+        else if (atkBaseSpeciesId == SPECIES_RAICHU && (B_LIGHT_BALL_ATTACK_BOOST >= GEN_4 || IsBattleMoveSpecial(move)))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_CHOICE_BAND:
         if (IsBattleMovePhysical(move) && GetActiveGimmick(battlerAtk) != GIMMICK_DYNAMAX)
@@ -10298,6 +10332,10 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(u32 move, u32 moveType, u32 
         if (typeEffectivenessModifier >= UQ_4_12(2.0))
             return UQ_4_12(0.75);
         break;
+    case ABILITY_BULL_SHIELD:
+        if (typeEffectivenessModifier >= UQ_4_12(2.0))
+            return UQ_4_12(0.5);
+        break;
     case ABILITY_FLUFFY:
         if (!IsMoveMakingContact(move, battlerAtk) && moveType == TYPE_FIRE)
             return UQ_4_12(2.0);
@@ -10612,6 +10650,13 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
     {
         mod = UQ_4_12(1.0);
     }
+    // Bone moves hit flying types
+    else if (moveType == TYPE_GROUND 
+        && (move == MOVE_BONE_RUSH || move == MOVE_BONEMERANG || move == MOVE_BONE_CLUB)
+        && abilityAtk == ABILITY_BONE_POWER && defType == TYPE_FLYING && mod == UQ_4_12(0.0))
+    {
+        mod = UQ_4_12(1.0);
+    }
     else if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL) && defType == TYPE_GHOST
         && (abilityAtk == ABILITY_SCRAPPY || abilityAtk == ABILITY_MINDS_EYE)
         && mod == UQ_4_12(0.0))
@@ -10824,6 +10869,8 @@ uq4_12_t GetOverworldTypeEffectiveness(struct Pokemon *mon, u8 moveType)
         if ((modifier <= UQ_4_12(1.0)  &&  abilityDef == ABILITY_WONDER_GUARD)
          || (moveType == TYPE_FIRE     &&  abilityDef == ABILITY_FLASH_FIRE)
          || (moveType == TYPE_GRASS    &&  abilityDef == ABILITY_SAP_SIPPER)
+         || (moveType == TYPE_PSYCHIC  &&  abilityDef == ABILITY_PSYCHOPATH)
+         || (moveType == TYPE_DARK     &&  abilityDef == ABILITY_DARK_EATER)
          || (moveType == TYPE_GROUND   && (abilityDef == ABILITY_LEVITATE
                                        ||  abilityDef == ABILITY_EARTH_EATER))
          || (moveType == TYPE_WATER    && (abilityDef == ABILITY_WATER_ABSORB

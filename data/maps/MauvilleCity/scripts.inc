@@ -167,6 +167,8 @@ MauvilleCity_EventScript_DefeatedWally::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterDown
 	waitmovement 0
 	msgbox MauvilleCity_Text_ScottYouDidntHoldBack, MSGBOX_DEFAULT
+	giveitem ITEM_LIFE_ORB
+	msgbox MauvilleCity_Text_ScottYouDidntHoldBack2, MSGBOX_DEFAULT
 	closemessage
 	addvar VAR_SCOTT_STATE, 1
 	call_if_eq VAR_FACING, DIR_NORTH, MauvilleCity_EventScript_ScottExitNorth
@@ -574,6 +576,9 @@ MauvilleCity_Text_ScottYouDidntHoldBack:
 	.string "Yeah! That's what a real POKéMON\n"
 	.string "battle is all about!\p"
 	.string "I idolize TRAINERS like that!\p"
+	.string "For that, I have a small reward for you!$"
+
+MauvilleCity_Text_ScottYouDidntHoldBack2:
 	.string "… … … … … …\n"
 	.string "I'll be cheering for you!$"
 

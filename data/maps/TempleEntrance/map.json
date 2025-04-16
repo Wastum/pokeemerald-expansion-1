@@ -1,0 +1,40 @@
+{
+  "id": "MAP_TEMPLE_ENTRANCE",
+  "name": "TempleEntrance",
+  "layout": "LAYOUT_TEMPLE_ENTRANCE",
+  "music": "MUS_RG_MT_MOON",
+  "region_map_section": "MAPSEC_ROUTE_111",
+  "requires_flash": false,
+  "weather": "WEATHER_SANDSTORM",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE111",
+      "offset": -41,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_TEMPLE",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -307,6 +307,7 @@ static u8 ChooseWildMonIndex_Fishing(u8 rod)
 
 static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, u8 area)
 {
+    s32 i;
     u8 min;
     u8 max;
     u8 range;
@@ -314,8 +315,76 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 
     if (LURE_STEP_COUNT == 0)
     {
+        // Level scaling in case it's been activated
+        if (WSTM_LEVEL_SCALE_WILD)
+        {
+            u8 levelBase = gPlayerParty[0].level;
+            u8 levelRange = 5;
+            u8 levelOffset = 2;
+            u8 levelRawMin;
+            u8 levelRawMax;
+            /*u8 scaleTeamSize = ARRAY_COUNT(gPlayerParty);
+            if (PARTY_SIZE > 2)
+            {
+                for (i = 0; i < scaleTeamSize; i++)
+                {
+                    if (gPlayerParty[i].level && gPlayerParty[i].level < levelBase)
+                    {
+                        levelBase = gPlayerParty[i].level;
+                        //levelBase = 5;
+                    }
+                }
+            }       
+            else
+            {
+                //levelBase = gPlayerParty[0].level;
+                levelBase = 2;
+            }*/
+
+            // If level is lower than 2, wild pokemon should always be level 1
+            if (levelBase < 2)
+            {
+                levelRawMin = 1;
+                levelRawMax = 1;
+            }
+            else
+            {
+                u8 levelBias;
+                if (levelOffset >= levelBase)
+                {
+                    levelOffset = 0;
+                }
+
+                if (levelRange >= levelBase)
+                {
+                    levelRange = 0;
+                }
+
+                levelBias = levelRange + levelOffset;
+
+                if (levelBias < levelBase)
+                {
+                    levelRawMin = levelBase - levelOffset - levelRange;
+                    levelRawMax = levelBase - levelOffset;
+                }
+                else
+                {
+                    levelRawMin = 2;
+                    levelRawMax = 2;
+                }
+            }
+
+            //levelRawMin = (levelBase > levelRange + levelBias) ? levelBase : levelBase - levelRange - levelBias;
+            //levelRawMax = levelBase - levelBias;
+
+            //min = (levelRawMin > 0) ? levelRawMin : 2;
+            //max = (levelRawMax > 0) ? levelRawMax : 2;
+
+            min = levelRawMin;
+            max = levelRawMax;;
+        }
         // Make sure minimum level is less than maximum level
-        if (wildPokemon[wildMonIndex].maxLevel >= wildPokemon[wildMonIndex].minLevel)
+        else if (wildPokemon[wildMonIndex].maxLevel >= wildPokemon[wildMonIndex].minLevel)
         {
             min = wildPokemon[wildMonIndex].minLevel;
             max = wildPokemon[wildMonIndex].maxLevel;

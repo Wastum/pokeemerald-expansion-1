@@ -52,6 +52,28 @@ RustboroCity_Mart_Pokemart_Expanded:
 	.2byte ITEM_X_DEFENSE
 	pokemartlistend
 
+RustboroCity_Mart_EventScript_Clerk_Extra::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart RustboroCity_Mart_Pokemart_Extra
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+RustboroCity_Mart_Pokemart_Extra:
+	.2byte ITEM_MACHO_BRACE
+	.2byte ITEM_POWER_BRACER
+	.2byte ITEM_POWER_BAND
+	.2byte ITEM_POWER_BELT
+	.2byte ITEM_POWER_ANKLET
+	.2byte ITEM_POWER_LENS
+	.2byte ITEM_POWER_WEIGHT
+	.2byte ITEM_SERIOUS_MINT
+	pokemartlistend
+
 RustboroCity_Mart_EventScript_PokefanF::
 	msgbox RustboroCity_Mart_Text_BuyingHealsInCaseOfShroomish, MSGBOX_NPC
 	end
