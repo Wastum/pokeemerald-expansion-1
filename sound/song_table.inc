@@ -644,6 +644,7 @@ gSongTable::
 	song mus_hgss_vs_trainer_kanto, 0, 0
 	song mus_hgss_vs_wild, 0, 0
 	song mus_hgss_vs_wild_kanto, 0, 0
+	song mus_bw_vs_gym_last, 0, 0
 	.align 2
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -581,6 +581,7 @@
 #define MUS_HGSS_VS_TRAINER_KANTO   640
 #define MUS_HGSS_VS_WILD            641
 #define MUS_HGSS_VS_WILD_KANTO      642
+#define MUS_BW_VS_GYM_LAST          643
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 

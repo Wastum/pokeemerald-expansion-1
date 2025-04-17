@@ -5889,7 +5889,7 @@ u16 GetBattleBGM(void)
                     return MUS_GSC_VS_GYM;
             else
                 //return HG_SEQ_GS_VS_GYMREADER;
-                return MUS_HGSS_VS_TRAINER;
+                return MUS_HGSS_VS_GYM;
         }
     }
     else
