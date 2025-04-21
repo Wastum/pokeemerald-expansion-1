@@ -620,7 +620,7 @@ gSongTable::
 	song mus_dp_vs_trainer_vgm, 0, 0
 	song mus_gsc_vs_wild, 0, 0
 	song mus_gsc_vs_trainer, 0, 0
-	song mus_dp_vs_gym, 0, 0
+	song mus_dp_vs_gym_vgm, 0, 0
 	song hg_seq_gs_vs_gymreader, 0, 0
 	song mus_dp_vs_champion, 0, 0
 	song mus_dp_vs_cyrus, 0, 0

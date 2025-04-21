@@ -5889,7 +5889,7 @@ u16 GetBattleBGM(void)
                     return MUS_GSC_VS_GYM;
             else
                 //return HG_SEQ_GS_VS_GYMREADER;
-                return MUS_HGSS_VS_GYM;
+                return MUS_HGSS_VS_ROCKET;
         }
     }
     else
@@ -5903,7 +5903,7 @@ u16 GetBattleBGM(void)
             || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_112
             || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_111
             || gMapHeader.regionMapSectionId == MAPSEC_ROUTE_113)
-            return MUS_DP_VS_WILD;
+            return MUS_DP_VS_WILD_VGM;
         else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_104)
             return MUS_GSC_VS_WILD;
         else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_102)
