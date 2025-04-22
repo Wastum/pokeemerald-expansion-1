@@ -28,3 +28,4 @@ PetalburgPark_Text_Red2:
 
 PetalburgPark_Text_Red3:
 	.string "Vooruit dan maar$"
+	

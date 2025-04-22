@@ -9,7 +9,7 @@
 // for things like shortening an NPCs introduction text if the player already spoke
 // to them once.
 #define TEMP_FLAGS_START 0x0
-#define FLAG_TEMP_1      (TEMP_FLAGS_START + 0x1)
+#define FLAG_TEMP_1      (TEMP_FLAGS_START + 0x1) 
 #define FLAG_TEMP_2      (TEMP_FLAGS_START + 0x2)
 #define FLAG_TEMP_3      (TEMP_FLAGS_START + 0x3)
 #define FLAG_TEMP_4      (TEMP_FLAGS_START + 0x4)
@@ -98,7 +98,7 @@
 #define FLAG_RESCUED_BIRCH                       0x52
 #define FLAG_LEGENDARIES_IN_SOOTOPOLIS           0x53
 
-#define FLAG_UNUSED_0x054                    0x54  // Unused Flag
+#define FLAG_WATERFALL                   0x54  // Allow Surfboard to climb waterfalls
 #define FLAG_UNUSED_0x055                    0x55  // Unused Flag
 
 #define FLAG_HIDE_CONTEST_POKE_BALL          0x56  // Always set after new game, object it hides is added directly

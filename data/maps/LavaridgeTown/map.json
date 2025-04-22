@@ -257,6 +257,54 @@
       "elevation": 3,
       "item": "ITEM_ICE_HEAL",
       "flag": "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "item": "ITEM_SURFBOARD",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 17,
+      "elevation": 0,
+      "item": "ITEM_HAMMER",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_AXE",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 2,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_DIVING_SUIT",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_LANTERN",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 4,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_POWER_GLOVE",
+      "flag": "FLAG_TEMP_1"
     }
   ]
 }

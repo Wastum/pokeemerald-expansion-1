@@ -663,5 +663,8 @@ extern const u8 EventScript_LostSignal[];
 extern const u8 EventScript_TooDark[];
 extern const u8 EventScript_MovedTooFast[];
 
+// HM Items
+extern const u8 EventScript_DiveSpot[];
+extern const u8 EventScript_DiveUnderwater[];
 
 #endif // GUARD_EVENT_SCRIPTS_H

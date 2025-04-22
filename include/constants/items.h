@@ -996,10 +996,18 @@
 
 #define ITEM_POKE_VIAL 829
 
+// HM Items
+#define ITEM_SURFBOARD 830
+#define ITEM_AXE 831
+#define ITEM_HAMMER 832
+#define ITEM_DIVING_SUIT 833
+#define ITEM_LANTERN 834
+#define ITEM_POWER_GLOVE 835
+
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 830
+#define ITEMS_COUNT 836
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

@@ -14117,4 +14117,101 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    // HM Items
+    [ITEM_SURFBOARD] =
+    {
+        .name = _("Surfboard"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A surfboad that\n"
+            "allows you to\n"
+            "cross the water."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_SurfBoard,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    [ITEM_AXE] =
+    {
+        .name = _("Axe"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "An Axe that\n"
+            "allows you to\n"
+            "cut trees."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Axe,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    [ITEM_HAMMER] =
+    {
+        .name = _("Hammer"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A hammer that\n"
+            "allows you to\n"
+            "smash rocks."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Hammer,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    [ITEM_DIVING_SUIT] =
+    {
+        .name = _("Diving Suit"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A suit that\n"
+            "allows you to\n"
+            "dive under water."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_DivingSuit,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    [ITEM_LANTERN] =
+    {
+        .name = _("Lantern"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A lantern that\n"
+            "allows you to\n"
+            "light up caves."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Lantern,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
+
+    [ITEM_POWER_GLOVE] =
+    {
+        .name = _("Power Glove"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A glove that\n"
+            "allows you to\n"
+            "smash rocks."
+        ),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_PowerGlove,
+        .iconPic = gItemIcon_PokeshiDoll,
+        .iconPalette = gItemIconPalette_PokeshiDoll,
+    },
 };
