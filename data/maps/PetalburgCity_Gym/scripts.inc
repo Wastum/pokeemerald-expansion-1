@@ -414,6 +414,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	end
 
 PetalburgCity_Gym_EventScript_GiveFacade::
+	giveitem ITEM_SURFBOARD
 	giveitem ITEM_TM_FACADE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	setflag FLAG_RECEIVED_TM_FACADE
@@ -1120,6 +1121,8 @@ PetalburgCity_Gym_EventScript_GymGuide::
 	faceplayer
 	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_GymGuidePostVictory
 	msgbox PetalburgCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	giveitem ITEM_TM57
+	msgbox PetalburgCity_Gym_Text_GymGuideAdvice2, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1354,6 +1357,11 @@ PetalburgCity_Gym_Text_GymGuideAdvice:
 	.string "the door, so choose carefully.\p"
 	.string "Once you've chosen the door…\n"
 	.string "Well, hey, go for it!$"
+
+PetalburgCity_Gym_Text_GymGuideAdvice2:
+	.string "It's a risky move, but\n"
+	.string "it might win you matches.\p"
+	.string "but it can cost you too$"
 
 PetalburgCity_Gym_Text_GymGuidePostVictory:
 	.string "{PLAYER}! Whoa! You've overcome even\n"

@@ -30,6 +30,7 @@ RustboroCity_Gym_EventScript_GiveRockTomb::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_TM_ROCK_TOMB
 	msgbox RustboroCity_Gym_Text_ExplainRockTomb, MSGBOX_DEFAULT
+	giveitem ITEM_AXE
 	giveitem ITEM_ROCKY_HELMET
 	msgbox RustboroCity_Gym_Text_GiveEviolite, MSGBOX_DEFAULT
 	release

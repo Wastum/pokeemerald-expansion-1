@@ -797,10 +797,10 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     {
         .baseHP        = 80,
         .baseAttack    = 120,
-        .baseDefense   = 75,
-        .baseSpeed     = 60,
+        .baseDefense   = 90,
+        .baseSpeed     = 120,
         .baseSpAttack  = 75,
-        .baseSpDefense = 75,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FLYING),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 243 : 218,

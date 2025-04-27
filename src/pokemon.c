@@ -5835,7 +5835,10 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_TWINS:
         case TRAINER_CLASS_SR_AND_JR:
-            return MUS_RG_VS_GYM_LEADER;
+            if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                return MUS_DP_VS_GYM_VGM;
+            else
+                return MUS_RG_VS_GYM_LEADER;
         case TRAINER_CLASS_SALON_MAIDEN:
         case TRAINER_CLASS_DOME_ACE:
         case TRAINER_CLASS_PALACE_MAVEN:
@@ -5860,6 +5863,7 @@ u16 GetBattleBGM(void)
                 return MUS_GSC_VS_TRAINER;
             else if (gMapHeader.regionMapSectionId == MAPSEC_ROUTE_116)
                 return MUS_RG_VS_GYM_LEADER;
+            // Rustboro Gym/Dewford Gym
             else if (gMapHeader.regionMapSectionId == MAPSEC_RUSTBORO_CITY || gMapHeader.regionMapSectionId == MAPSEC_DEWFORD_TOWN)
                 if (trainerClass == TRAINER_CLASS_HIKER)
                     return MUS_DP_VS_GYM_VGM;
@@ -5887,9 +5891,18 @@ u16 GetBattleBGM(void)
                     return MUS_RG_VS_GYM_LEADER;
                 else
                     return MUS_GSC_VS_GYM;
+            // Petalburg Gym
+            else if (gMapHeader.regionMapSectionId == MAPSEC_PETALBURG_CITY && gMapHeader.mapType == MAP_TYPE_INDOOR)
+                if (trainerClass == TRAINER_CLASS_SCHOOL_KID || trainerClass == TRAINER_CLASS_LADY)
+                    return MUS_DP_VS_GYM_VGM;
+                else if (trainerClass == TRAINER_CLASS_TUBER_M || trainerClass == TRAINER_CLASS_TUBER_F)
+                    return MUS_GSC_VS_GYM;
+                else
+                    return MUS_RG_VS_GYM_LEADER;
+            // Default Trainer battle
             else
                 //return HG_SEQ_GS_VS_GYMREADER;
-                return MUS_HGSS_VS_ROCKET;
+                return MUS_GSC_VS_TRAINER;
         }
     }
     else

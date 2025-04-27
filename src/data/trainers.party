@@ -1375,72 +1375,316 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tail Whip
 - Surf
 
+/* Speed Room, Mega Evolution */
 === TRAINER_RANDALL ===
-Name: RANDALL
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: Randall
+Class: Tuber M
+Pic: Tuber M
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Girl
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / HP Aware / Prefer Status Moves / Ace Pokemon
+Mugshot: Yellow
 
-Swellow
-Level: 26
+Furret (M) @ Figy Berry
+Ability: Fur Coat
+Level: 47   
+EVs: 64 HP / 64 Atk / 190 Def / 0 SpA / 190 SpD / 0 Spe
+Adamant Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Quick Attack
-- Agility
-- Wing Attack
+- Belly Drum
+- Extremespeed
+- Sucker Punch
+- Zen Headbutt
 
+Swellow (M) @ Flame Orb
+Ability: Guts
+Level: 47   
+EVs: 0 HP / 0 Atk / 84 Def / 252 SpA / 84 SpD / 84 Spe
+Timid Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tailwind
+- Hurricane
+- Boomburst
+- U-Turn
+
+Heliolisk (F) @ Focus Sash
+Ability: Dry Skin
+Level: 47   
+EVs: 4 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 252 Spe
+Timid Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dragon Pulse
+- Thunderbolt
+- Surf
+- Grass Knot
+
+Ambipom (M) @ Life Orb
+Ability: Technician
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Triple Axel
+- Smack Down
+- Double Hit
+
+Cyclizar (F) @ Loaded Dice
+Ability: Shed Skin
+Level: 47   
+EVs: 0 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Scale Shot
+- Supercell Slam
+- Knock Off
+- Ice Spinner
+
+Lopunny (F) @ Lopunnite
+Ability: Cute Charm
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- High Jump Kick
+- Ice Punch
+- Fire Punch
+
+/* Confusion Room */
 === TRAINER_PARKER ===
-Name: PARKER
+Name: Parker
 Class: Cooltrainer
 Pic: Cooltrainer M
 Gender: Male
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / HP Aware / Ace Pokemon
+Mugshot: Yellow
 
-Spinda
-Level: 26
+Zoroark-Hisui (F) @ Colbur Berry
+Ability: Illusion
+Level: 47   
+EVs: 0 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 252 Spe
+Timid Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Teeter Dance
-- Dizzy Punch
-- Focus Punch
+- Hyper Voice
+- Psychic
+- Bitter Malice
+- Taunt
+
+Exploud (F) @ Focus Sash
+Ability: Scrappy
+Level: 47   
+EVs: 252 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 4 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Boomburst
+- Alluring Voice
+- Fire Blast
+- Ice Beam
+
+Tauros (F) @ Assault Vest
+Ability: Intimidate
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe 
+- Zen Headbutt
+- Raging Bull
+- Trailblaze
+- Wild Charge
+
+Raticate (F) @ Normal Gem
+Ability: Fur Coat
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Swords Dance
+- Pluck
+- Extremespeed
+- Sucker Punch
+
+Pyroar (F) @ Fire Gem
+Ability: Drought
+Level: 47   
+EVs: 4 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 252 Spe
+Timid Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fire Blast
+- Hyper Voice
+- Dark Pulse
+- Solar Beam
+
+Miltank (F) @ Rock Gem
+Ability: Thick Fat
+Level: 47   
+EVs: 4 HP / 252 Atk / 126 Def / 0 SpA / 126 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Tera Type: Rock
+- Milk Drink
+- Tera Blast
+- Zen Headbutt
+- Body Slam
 
 === TRAINER_GEORGE ===
-Name: GEORGE
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: Max
+Class: School Kid
+Pic: School Kid M
 Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
+Music: Male
+Double Battle: Yes
+AI: Smart Trainer / HP Aware / Prefer Status Moves / Double Ace Pokemon
+Mugshot: Yellow
 
-Slakoth @ Sitrus Berry
-Level: 26
+Wigglytuff (M) @ Wiki Berry
+Ability: Prankster
+Level: 47   
+EVs: 126 HP / 0 Atk / 126 Def / 126 SpA / 126 SpD / 0 Spe
+Modest Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Slack Off
-- Counter
+- Heal Pulse
+- Thunder Wave
+- Dazzling Gleam
+- Metronome
+
+Arboliva (M) @ Light Clay
+Ability: Seed Sower
+Level: 47   
+EVs: 168 HP / 0 Atk / 84 Def / 252 SpA / 84 SpD / 0 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Reflect
+- Light Screen
+- Dazzling Gleam
+- Giga Drain
+
+Sawsbuck (M) @ Big Root
+Ability: Serene Grace
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Zen Headbutt
+- Horn Leech
+- Megahorn
+- Protect
+
+Unfezant (M) @ Luck Incense
+Ability: Super Luck
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Tailwind
+- Roost
+- Dual Wingbeat
+- Steel Wing
+
+Farigiraf (M) @ Flying Gem
+Ability: Armor Tail
+Level: 47   
+EVs: 128 HP / 0 Atk / 64 Def / 252 SpA / 64 SpD / 0 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Tera Type: Flying
+- Tera Blast
+- Twin Beam
+- Energy Ball
 - Shadow Ball
 
-=== TRAINER_BERKE ===
-Name: BERKE
-Class: Cooltrainer
-Pic: Cooltrainer M
-Gender: Male
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Basic Trainer
-
-Vigoroth
-Level: 26
+Kangaskhan (M) @ Kangaskhanite
+Ability: Inner Focus
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Focus Energy
-- Slash
+- Sucker Punch
+- Ice Punch
+- Drain Punch
+- Double Hit
+
+/* OHKO Room, Dynamax */
+=== TRAINER_BERKE ===
+Name: Berke
+Class: Lady
+Pic: Lady
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Smart Trainer / HP Aware / Double Ace Pokemon
+Mugshot: Yellow
+
+Smeargle (M) @ Chople Berry
+Ability: Moody
+Level: 47   
+EVs: 84 HP / 84 Atk / 84 Def / 84 SpA / 84 SpD / 84 Spe
+Hardy Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Dynamax Level: 10
+- V-Create
+- Dragon Ascent
+- Meteor Beam
+- Psystrike
+
+Maushold (M) @ Loaded Dice
+Ability: Friend Guard
+Level: 47   
+EVs: 4 HP / 252 Atk / 64 Def / 0 SpA / 64 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Population Bomb
+- Bullet Seed
+- Tidy Up
+- Protect
+
+Stoutland (F) @ Life Orb
+Ability: Intimidate
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wild Charge
+- Psychic Fangs
+- Double-Edge
+- Ice Fang
+
+Dubwool (F) @ Sitrus Berry
+Ability: Fluffy
+Level: 47   
+EVs: 252 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 4 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Zen Headbutt
+- Wild Charge
+- Double-Edge
+- Reversal
+
+Furfrou (F) @ Weakness Policy
+Ability: Fur Coat
+Level: 47   
+EVs: 252 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 4 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Sucker Punch
+- Zen Headbutt
+- Thunder Wave
+- Headbutt
+
+Braviary (F) @ Ground Gem
+Ability: Sheer Force
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Tera Type: Ground
+- Tera Blast
+- Dual Wingbeat
+- Extremespeed
+- Superpower
 
 === TRAINER_BRAXTON ===
 Name: BRAXTON
@@ -1789,54 +2033,238 @@ Ludicolo
 Level: 33
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
+/* Accuracy Room, Mega Evolution */
 === TRAINER_MARY ===
-Name: MARY
-Class: Cooltrainer
-Pic: Cooltrainer F
+Name: Mary
+Class: Tuber F
+Pic: Tuber F
 Gender: Female
-Music: Cool
-Items: Hyper Potion
+Music: Girl
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / HP Aware / Powerful Status / Ace Pokemon
+Mugshot: Yellow
 
-Delcatty
-Level: 26
+Indeedee (F) @ Terrain Extender
+Ability: Psychic Surge
+Level: 47   
+EVs: 126 HP / 0 Atk / 126 Def / 126 SpA / 126 SpD / 0 Spe
+Modest Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Feint Attack
-- Shock Wave
+- Psychic Noise
+- Alluring Voice
+- Gravity
+- Hyper Voice
 
+Purugly (F) @ Sitrus Berry
+Ability: Defiant
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Fake Out
+- Play Rough
+- Body Slam
+- Aerial Ace
+
+Persian (F) @ Life Orb
+Ability: Technician
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Trailblaze
+- Metal Claw
+- Shadow Claw
+- Play Rough
+
+Zangoose (F) @ Toxic Orb
+Ability: Toxic Boost
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe 
+- Hone Claws
+- Gunk Shot
+- Rock Slide
+- Crush Claw
+
+Dudunsparce (F) @ Leftovers
+Ability: Serene Grace
+Level: 47   
+EVs: 84 HP / 84 Atk / 84 Def / 84 SpA / 84 SpD / 84 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Coil
+- Stone Edge
+- Hyper Drill
+- Earthquake
+
+Pidgeot (F) @ Pidgeotite
+Ability: No Guard
+Level: 47   
+EVs: 4 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 252 Spe
+Timid Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hurricane
+- Heat Wave
+- Quick Attack
+- Roost
+
+/* Defense Room, Gigantamax */
 === TRAINER_ALEXIA ===
-Name: ALEXIA
+Name: Alexia
 Class: Cooltrainer
 Pic: Cooltrainer F
 Gender: Female
 Music: Cool
-Items: Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / HP Aware
+Mugshot: Yellow
 
-Wigglytuff
-Level: 26
+Eevee (F) @ Focus Sash
+Ability: Huge Power
+Level: 47   
+EVs: 0 HP / 252 Atk / 126 Def / 0 SpA / 126 SpD / 0 Spe
+Adamant Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Defense Curl
-- Double Edge
-- Shadow Ball
+Gigantamax: Yes
+- Headbutt
+- Zen Headbutt
+- Double Kick
+- Iron Tail
 
+Drampa (F) @ White Herb
+Ability: Berserk
+Level: 47   
+EVs: 252 HP / 0 Atk / 4 Def / 252 SpA / 0 SpD / 0 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Draco Meteor
+- Energy Ball
+- Heat Wave
+- Hyper Voice
+
+Bouffalant (F) @ Life Orb
+Ability: Reckless
+Level: 47   
+EVs: 128 HP / 252 Atk / 64 Def / 0 SpA / 64 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Wild Charge
+- Head Charge
+- Megahorn
+- Revenge
+
+Oinkologne (F) @ Sitrus Berry
+Ability: Thick Fat
+Level: 47   
+EVs: 168 HP / 252 Atk / 84 Def / 0 SpA / 84 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Yawn
+- Double-Edge
+- Zen Headbutt
+- Stuff Cheeks
+
+Obstagoon (F) @ Loaded Dice
+Ability: Defiant
+Level: 47   
+EVs: 84 HP / 168 Atk / 84 Def / 0 SpA / 84 SpD / 84 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Obstruct
+- Knock Off
+- Thunder Punch
+- Pin Missile
+
+Greedent (F) @ Chople Berry
+Ability: Cheek Pouch
+Level: 47   
+EVs: 168 HP / 252 Atk / 84 Def / 0 SpA / 84 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psychic Fangs
+- High Horsepower
+- Ice Fang
+- Fire Fang
+
+/* Strength Room, Double Battle */
 === TRAINER_JODY ===
-Name: JODY
-Class: Cooltrainer
-Pic: Cooltrainer F
+Name: Jody
+Class: Lady
+Pic: Lady
 Gender: Female
-Music: Cool
-Items: Hyper Potion
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Force Setup First Turn
+Music: Female
+Double Battle: Yes
+AI: Smart Trainer / HP Aware / Prefer Status Moves / Double Ace Pokemon
+Mugshot: Yellow
 
-Zangoose
-Level: 26
+Watchog (M) @ Sitrus Berry
+Ability: Fur Coat
+Level: 47   
+EVs: 126 HP / 0 Atk / 64 Def / 252 SpA / 64 SpD / 0 Spe
+Modest Nature  
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Swords Dance
-- Slash
+- Psyshock
+- Hyper Voice
+- Thunder Wave
+- Thunderbolt
+
+Wyrdeer (M) @ Psychic Gem
+Ability: Intimidate
+Level: 47   
+EVs: 128 HP / 252 Atk / 64 Def / 0 SpA / 64 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Psyshield Bash
+- High Horsepower
+- Lunge
+- Double-Edge
+
+Bewear (M) @ Big Root
+Ability: Fluffy
+Level: 47   
+EVs: 128 HP / 252 Atk / 64 Def / 0 SpA / 64 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Ice Punch
+- Thunder Punch
+- Drain Punch
+- Darkest Lariat
+
+Staraptor (M) @ Flying Gem
+Ability: Reckless
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Brave Bird
+- Close Combat
+- Quick Attack
+- Roost
+
+Porygon2 (M) @ Eviolite
+Ability: Download
+Level: 47   
+EVs: 128 HP / 0 Atk / 64 Def / 252 SpA / 64 SpD / 0 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Tera Type: Psychic
+- Tera Blast
+- Tri Attack
+- Discharge
+- Recover
+
+Audino (M) @ Audinite
+Ability: Healer
+Level: 47   
+EVs: 0 HP / 0 Atk / 252 Def / 0 SpA / 252 SpD / 0 Spe
+Bold Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Dazzling Gleam
+- Yawn
+- Light Screen
+- Reflect
 
 === TRAINER_WENDY ===
 Name: WENDY
@@ -5526,7 +5954,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Parabolic Charge
 - Super Fang
 - Thunder Wave
-- Hyper Voice
+- Boomburst
 
 Pawmot (M) @ Focus Sash
 Ability: Iron Fist
@@ -5652,46 +6080,82 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ancient Power
 
 === TRAINER_NORMAN_1 ===
-Name: NORMAN
+Name: Norman
 Class: Leader
 Pic: Leader Norman
 Gender: Male
 Music: Male
-Items: Hyper Potion / Hyper Potion
 Double Battle: No
-AI: Basic Trainer
+AI: Smart Trainer / HP Aware / Prediction / Double Ace Pokemon
+Mugshot: Blue
 
-Spinda
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Teeter Dance
-- Psybeam
-- Facade
-- Encore
+Snorlax (F) @ Figy Berry
+Ability: Gluttony
+Level: 47   
+EVs: 4 HP / 252 Atk / 252 Def / 0 SpA / 0 SpD / 0 Spe
+Adamant Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Gigantamax: Yes
+- Hammer Arm
+- High Horsepower
+- Zen Headbutt
+- Wild Charge
 
-Vigoroth
-Level: 27
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Facade
-- Encore
-- Feint Attack
+Toucannon (F) @ Sitrus Berry
+Ability: Skill Link
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Roost
+- Fury Attack
+- Bullet Seed
+- Beak Blast
 
-Linoone
-Level: 29
-IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
-- Slash
-- Belly Drum
-- Facade
-- Headbutt
+Ursaluna-Bloodmoon (F) @ Life Orb
+Ability: Minds Eye
+Level: 47
+EVs: 4 HP / 0 Atk / 0 Def / 252 SpA / 252 SpD / 0 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Earth Power
+- Blood Moon
+- Moonlight
+- Moonblast
 
-Slaking @ Sitrus Berry
-Level: 31
-IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-- Counter
-- Yawn
-- Facade
-- Feint Attack
+Slaking (F) @ Choice Scarf
+Ability: Truant
+Level: 47   
+EVs: 4 HP / 252 Atk / 0 Def / 0 SpA / 0 SpD / 252 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Giga Impact
+- Earthquake
+- Hammer Arm
+- Thunder Punch
+
+Terapagos (F) @ Power Herb
+Ability: Tera Shift
+Level: 47   
+EVs: 252 HP / 0 Atk / 0 Def / 252 SpA / 0 SpD / 0 Spe
+Modest Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+Tera Type: Stellar
+- Tera Starstorm
+- Earth Power
+- Flash Cannon
+- Dark Pulse
+
+Regigigas (F) @ Sitrus Berry
+Ability: Huge Power
+Level: 47   
+EVs: 4 HP / 0 Atk / 252 Def / 0 SpA / 252 SpD / 0 Spe
+Jolly Nature  
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Drain Punch
+- Fire Punch
+- Ice Punch
+- Double-Edge
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
